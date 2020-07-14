@@ -27,7 +27,7 @@ body {
 }
 
 .right {
-    background-color: #fdfcf2;
+    background-color: #eeeded;
 }
 
 #note {
@@ -35,22 +35,24 @@ body {
     top: 0px;
     z-index: 1;
     display: none;
-    background-color: #141929;
+    background-color: #282D3E;
     border-radius: 20px;
 }
 
 #title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 #text {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .card {
     border-radius: 20px 20px 20px 20px;
-    background-color: #141929;
-    border: 1px solid #fdfcf2;
+    background-color: #282D3E;
+    border: 1px solid #eeeded;
+    -webkit-box-shadow: 5px 5px 4px rgba(102, 100, 100, 0.3);
+    box-shadow: 5px 5px 4px rgba(102, 100, 100, 0.3);
 }
 
 .card-img-top {
