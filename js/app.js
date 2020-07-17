@@ -5,10 +5,10 @@ var date;
 
 var xhr = new XMLHttpRequest();
 xhr.open('get', 'https://yoluntsai.github.io/Travel_Blog_JSON/Sights.json', true);
-xhr.send();
 xhr.onload = function () {
     date = JSON.parse(this.responseText);
 };
+xhr.send();
 
 function change(a) {
     note.style.display = "block";
