@@ -1,35 +1,19 @@
-var note_title = [
-    "鹿港 - 新祖宮",
-    "南投 - 車埕火車站",
-    "鹿港 - 玻璃媽祖廟",
-    "台南 - 奇美博物館",
-    "嘉義 - 老楊方城市觀光工廠",
-    "南投 - 妖怪村",
-    "南庄 - 神仙谷",
-    "澎湖 - 池東大菓葉玄武岩",
-    "臺中 - 柳川水岸景觀步道"
-];
-var note_text = [
-    "「新祖宮」是主祀著媽祖的廟宇，坐落在鹿港老街內，<br>鹿港老街內有許多充滿人文以及古色古香的歷史建築，更有豐富的美食小吃隱藏其中，<br>是來到彰化一定不能錯過的景點之一。",
-    "「車埕火車站」是我認為在臺灣最美麗的車站，<br>這裡四周都被群山環繞著，充斥著悠閒的氛圍，同時也有許多日式建築物，<br>當初由於真的很喜歡這裡，所以停留了將近一整個下午的時間，不過確實很值得。",
-    "「玻璃媽祖廟」是全球首座的玻璃廟宇，<br>由玻璃所打造而成的媽祖廟，確實相當地剔透華麗，<br>建築內部中央處還有一個許願池，當時候許多人都虔誠地投幣許願著。",
-    "「奇美博物館」的建築風格是融合了希臘與羅馬的古典元素，<br>館內有典藏許多西洋藝術品，主要有藝術、樂器、兵器與自然史四大領域，<br>雖然我沒有去過歐洲國家，但到了這裡也讓我充分感受到濃烈的歐洲氣息。",
-    "「老楊方城市觀光工廠」是臺灣第一座以方塊酥為主題的觀光工廠，<br>這裡提供免費參觀，可以了解方塊酥的製程，當然還有方塊酥試吃到飽，<br>另外也有許多3D立體彩繪牆，是一個兼具教育及玩樂性質的景點。",
-    "「妖怪村」是充滿日本氣息的景點，到了這裡仿佛置身在日本。<br>回想起第一次去的時候，處處瀰漫著一抹薄霧，景觀煞是優美，<br>這裡也經常舉辦一些活動，像是妖怪嘉年華等，當然也有許多特色美食，是非常值得遊玩的景點之一。",
-    "「神仙谷」是我與家人到南庄旅遊時的景點之一，<br>這裡的天然景觀宛如仙境般地夢幻，電影賽德克．巴萊也有到此處拍攝取景，<br>遠離城市的喧囂，享受著身處在大自然中的悠然，能使身心靈徹底地放鬆。",
-    "「池東大菓葉玄武岩」是研究所畢業旅行時去的，<br>照片中最右邊的部分是玄武岩，當時雖然親眼見識到了玄武岩的壯闊，<br>但這片湖似乎更吸引我的目光，於是隨手記錄下這片美麗的湖。",
-    "「柳川水岸景觀步道」是我在臺中唸研究所期間，平安夜的當天晚上去的，<br>現場有許多應景的裝飾，讓人感受到濃濃的聖誕節氣息，<br>當初拍這張照片的時候，是在茫茫人海中好不容易才找到的拍攝角度，聖誕樹倒映在水面上的模樣也被我記錄了下來。"
-];
-
-
 var note = document.getElementById("note");
+var title = document.getElementById("title");
+var text = document.getElementById("text");
+var date;
+
+var xhr = new XMLHttpRequest();
+xhr.open('get', 'https://yoluntsai.github.io/Travel_Blog_JSON/Sights.json', true);
+xhr.send();
+xhr.onload = function () {
+    date = JSON.parse(this.responseText);
+};
 
 function change(a) {
     note.style.display = "block";
-    var title = document.getElementById("title");
-    var text = document.getElementById("text");
-    title.innerText = note_title[a];
-    text.innerHTML = note_text[a];
+    title.innerText = date[a].title;
+    text.innerHTML = date[a].text;
 }
 
 function hide() {
